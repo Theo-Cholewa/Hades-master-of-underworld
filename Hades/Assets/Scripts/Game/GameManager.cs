@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public UIController uiController;
     private void Start()
     {
+        this.LoadOptions();
         uiController.OnButtonFile += FileHandler;
         uiController.OnButtonOption += OptionHandler;
         uiController.OnButtonHelp += HelpHandler;
@@ -50,5 +51,11 @@ public class GameManager : MonoBehaviour
         inputManager.OnMouseClick = null;
         inputManager.OnMouseHold = null;
         inputManager.OnMouseUp = null;
+    }
+
+    public void LoadOptions()
+    {
+        cameraMovement.LoadFromJson();
+        Debug.Log("Options loaded");
     }
 }
